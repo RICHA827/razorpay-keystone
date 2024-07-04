@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Razorpay Demo</title>
+  </head>
+  <body>
+    <h1>PAYMENT PAGE</h1>
+    <button id="rzp-button1">Pay with Razorpay</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      document.getElementById("rzp-button1").onclick = async function (e) {
+        e.preventDefault();
+
+        let response = await fetch("http://localhost:3000/payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: 5000,
+          }),
+        });
+
+        let orderData = await response.json();
+        console.log(orderData);
+
+        var options = {
+          key: "rzp_test_ChLIiyCkSS7Ju8", // Replace with your Razorpay Key ID
+          amount: orderData.order.amount,
+          currency: "INR",
+          order_id: orderData.order.id,
+          handler: function (response) {
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature);
+          },
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+      };
+    </script>
+  </body>
+</html>

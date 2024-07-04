@@ -1,0 +1,17 @@
+{
+  "name": "razorpay-keystone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "keystone dev",
+    "build": "keystone build",
+    "start": "keystone start"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@keystone-6/core": "^6.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "razorpay": "^2.9.4"
+  }
+}

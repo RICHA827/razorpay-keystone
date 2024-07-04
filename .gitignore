@@ -1,0 +1,28 @@
+# Node.js related
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+# KeystoneJS specific
+.keystone/
+
+# Logs
+logs/
+*.log
+
+# Build output
+build/
+dist/
+
+# Misc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Razorpay related
+.rzp/
+rzp-secret-config.json
